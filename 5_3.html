@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitalize Words</title>
+    <script>
+        // Function to capitalize the first letter of each word
+        function capitalizeWords(sentence) {
+            return sentence
+                .toLowerCase()
+                .split(" ")
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ");
+        }
+
+        // Function to get user input and display the capitalized sentence
+        function processSentence() {
+            const userInput = document.getElementById("sentenceInput").value;
+
+            if (userInput.trim() === "") {
+                document.getElementById("result").innerText = "Please enter a sentence.";
+                return;
+            }
+
+            const capitalizedSentence = capitalizeWords(userInput);
+            document.getElementById("result").innerText = `Capitalized Sentence: ${capitalizedSentence}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Capitalize First Letter of Each Word</h1>
+    <input type="text" id="sentenceInput" placeholder="Enter a sentence">
+    <br><br>
+    <button onclick="processSentence()">Capitalize</button>
+    <br><br>
+    <p id="result"></p>
+</body>
+</html>

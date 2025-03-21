@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Highest Value in Array</title>
+    <script>
+        // Function to find the highest value in an array
+        function findMaxValue(arr) {
+            return Math.max(...arr); 
+        }
+
+        // Function to display the highest value
+        function showMaxValue() {
+            const numbers = [10, 25, 98, 45, 67, 123, 34, 76]; 
+            const maxValue = findMaxValue(numbers);
+
+            document.getElementById("result").innerText = `Array: ${numbers.join(", ")}\nHighest Value: ${maxValue}`;
+        }
+    </script>
+</head>
+<body onload="showMaxValue()">
+    <h1>Find Highest Value in an Array</h1>
+    <p id="result"></p> 
+</body>
+</html>

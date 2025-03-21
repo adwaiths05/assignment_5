@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Filter</title>
+    <script>
+        // Array of book objects
+        const books = [
+            { title: "The Story of My Experiments with Truth", author: "Mahatma Gandhi", cost: 300 },
+            { title: "Wings of Fire", author: "A.P.J. Abdul Kalam", cost: 550 },
+            { title: "Rich Dad Poor Dad", author: "Robert Kiyosaki", cost: 700 },
+            { title: "The Alchemist", author: "Paulo Coelho", cost: 450 }
+        ];
+
+        // Function to display books with cost > 500
+        function showExpensiveBooks() {
+            const expensiveBooks = books.filter(book => book.cost > 500);
+            const resultText = expensiveBooks.length 
+                ? expensiveBooks.map(book => `${book.title} (₹${book.cost})`).join("<br>") 
+                : "No books found with cost greater than 500.";
+
+            document.getElementById("expensiveBooks").innerHTML = `Books costing more than 500:<br>${resultText}`;
+        }
+
+        // Function to find the book by Mahatma Gandhi
+        function findGandhiBook() {
+            const gandhiBook = books.find(book => book.author === "Mahatma Gandhi");
+            document.getElementById("gandhiBook").innerText = gandhiBook 
+                ? `Book by Mahatma Gandhi: ${gandhiBook.title}` 
+                : "No book found by Mahatma Gandhi.";
+        }
+
+        // Function to display both results on page load
+        function displayResults() {
+            showExpensiveBooks();
+            findGandhiBook();
+        }
+    </script>
+</head>
+<body onload="displayResults()">
+    <h1>Book Information</h1>
+    <p id="expensiveBooks"></p>
+    <p id="gandhiBook"></p>
+</body>
+</html>

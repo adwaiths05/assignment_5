@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number & Fibonacci</title>
+    <script>
+        // Function to generate a random number between 1 and 10
+        function getRandomNumber() {
+            return Math.floor(Math.random() * 10) + 1;
+        }
+
+        // Function to generate Fibonacci numbers below a given number
+        function getFibonacciBelow(n) {
+            let fibSeries = [0, 1];
+            let nextFib = 1;
+
+            while (nextFib < n) {
+                fibSeries.push(nextFib);
+                nextFib = fibSeries[fibSeries.length - 1] + fibSeries[fibSeries.length - 2];
+            }
+
+            return fibSeries.filter(num => num < n); 
+        }
+
+        function showRandomAndFibonacci() {
+            const randomNumber = getRandomNumber(); 
+            const fibonacciNumbers = getFibonacciBelow(randomNumber); 
+
+            document.getElementById("randomNumber").innerText = `Random Number: ${randomNumber}`;
+            document.getElementById("fibonacciSeries").innerText = `Fibonacci Numbers Below ${randomNumber}: ${fibonacciNumbers.join(", ")}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Random Number & Fibonacci Series</h1>
+    <button onclick="showRandomAndFibonacci()">Generate</button>
+    <br><br>
+    <p id="randomNumber"></p>
+    <p id="fibonacciSeries"></p>
+</body>
+</html>

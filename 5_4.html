@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Categorizer</title>
+    <script>
+        // Function to categorize temperature
+        function categorizeTemperature(temp) {
+            if (temp < 0) {
+                return "Freezing ";
+            } else if (temp >= 0 && temp <= 15) {
+                return "Cold ";
+            } else if (temp >= 16 && temp <= 30) {
+                return "Moderate ";
+            } else {
+                return "Hot ";
+            }
+        }
+
+        // Function to get user input and display category
+        function checkTemperature() {
+            const userInput = document.getElementById("tempInput").value;
+            const temperature = parseFloat(userInput); // Convert to number
+
+            if (isNaN(temperature)) {
+                document.getElementById("result").innerText = "Please enter a valid temperature.";
+                return;
+            }
+
+            const category = categorizeTemperature(temperature);
+            document.getElementById("result").innerText = `The temperature is categorized as: ${category}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Temperature Categorizer</h1>
+    <input type="number" id="tempInput" placeholder="Enter temperature">
+    <br><br>
+    <button onclick="checkTemperature()">Check Category</button>
+    <br><br>
+    <p id="result"></p>
+</body>
+</html>

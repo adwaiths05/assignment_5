@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Star Pattern</title>
+    <style>
+        pre {
+            font-family: monospace;
+            font-size: 16px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Star Pattern</h2>
+    <pre id="patternOutput"></pre>
+
+    <script>
+        function printPattern(rows) {
+            let output = '';
+            for (let i = 1; i <= rows; i++) {
+                output += '*'.repeat(i) + '\n';
+            }
+            document.getElementById('patternOutput').textContent = output;
+        }
+
+        window.onload = function() {
+            printPattern(3);
+        }
+    </script>
+</body>
+</html>
